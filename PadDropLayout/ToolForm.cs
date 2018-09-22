@@ -85,9 +85,11 @@ namespace PadDropLayout
 			{
 				s.CheckedChanged += draw;
 			}
-			this.comboLayoutList.SelectedIndexChanged += draw; 
+			this.comboLayoutList.SelectedIndexChanged += draw;
 			this.checkReverseLR.CheckedChanged += draw;
 			this.Shown += draw;
+
+			this.pictureDropLayout.DoubleClick += ( s, a ) => { this.SaveImage(); };
 		}
 		
 		#endregion
@@ -130,6 +132,22 @@ namespace PadDropLayout
 			}
 			
 			this.pictureDropLayout.Image = this.bmp;
+		}
+		#endregion
+
+		#region SaveImage
+		private void SaveImage()
+		{
+			using ( var dialog = new SaveFileDialog() )
+			{
+				dialog.FileName = ( this.comboLayoutList.SelectedItem as Data ).Name + ".png";
+				if ( dialog.ShowDialog() == DialogResult.OK )
+				{
+					string filename = dialog.FileName;
+
+					this.bmp.Save( filename );
+				}
+			}
 		}
 		#endregion
 	}
