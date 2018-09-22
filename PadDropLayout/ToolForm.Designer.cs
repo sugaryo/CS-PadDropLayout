@@ -30,11 +30,11 @@
 		{
 			this.pictureDropLayout = new System.Windows.Forms.PictureBox();
 			this.groupDropMain = new System.Windows.Forms.GroupBox();
-			this.dropMainR = new System.Windows.Forms.RadioButton();
-			this.dropMainB = new System.Windows.Forms.RadioButton();
-			this.dropMainG = new System.Windows.Forms.RadioButton();
-			this.dropMainY = new System.Windows.Forms.RadioButton();
 			this.dropMainP = new System.Windows.Forms.RadioButton();
+			this.dropMainY = new System.Windows.Forms.RadioButton();
+			this.dropMainG = new System.Windows.Forms.RadioButton();
+			this.dropMainB = new System.Windows.Forms.RadioButton();
+			this.dropMainR = new System.Windows.Forms.RadioButton();
 			this.groupDropSub = new System.Windows.Forms.GroupBox();
 			this.dropSubP = new System.Windows.Forms.RadioButton();
 			this.dropSubY = new System.Windows.Forms.RadioButton();
@@ -42,6 +42,7 @@
 			this.dropSubB = new System.Windows.Forms.RadioButton();
 			this.dropSubR = new System.Windows.Forms.RadioButton();
 			this.comboLayoutList = new System.Windows.Forms.ComboBox();
+			this.checkReverseLR = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureDropLayout)).BeginInit();
 			this.groupDropMain.SuspendLayout();
 			this.groupDropSub.SuspendLayout();
@@ -76,50 +77,6 @@
 			this.groupDropMain.TabStop = false;
 			this.groupDropMain.Text = "攻撃：主属性";
 			// 
-			// dropMainR
-			// 
-			this.dropMainR.AutoSize = true;
-			this.dropMainR.BackColor = System.Drawing.Color.Black;
-			this.dropMainR.Image = global::PadDropLayout.Properties.Resources.Red;
-			this.dropMainR.Location = new System.Drawing.Point(16, 25);
-			this.dropMainR.Name = "dropMainR";
-			this.dropMainR.Size = new System.Drawing.Size(78, 64);
-			this.dropMainR.TabIndex = 0;
-			this.dropMainR.UseVisualStyleBackColor = false;
-			// 
-			// dropMainB
-			// 
-			this.dropMainB.AutoSize = true;
-			this.dropMainB.BackColor = System.Drawing.Color.Black;
-			this.dropMainB.Image = global::PadDropLayout.Properties.Resources.Blue;
-			this.dropMainB.Location = new System.Drawing.Point(100, 25);
-			this.dropMainB.Name = "dropMainB";
-			this.dropMainB.Size = new System.Drawing.Size(78, 64);
-			this.dropMainB.TabIndex = 0;
-			this.dropMainB.UseVisualStyleBackColor = false;
-			// 
-			// dropMainG
-			// 
-			this.dropMainG.AutoSize = true;
-			this.dropMainG.BackColor = System.Drawing.Color.Black;
-			this.dropMainG.Image = global::PadDropLayout.Properties.Resources.Green;
-			this.dropMainG.Location = new System.Drawing.Point(184, 25);
-			this.dropMainG.Name = "dropMainG";
-			this.dropMainG.Size = new System.Drawing.Size(78, 64);
-			this.dropMainG.TabIndex = 0;
-			this.dropMainG.UseVisualStyleBackColor = false;
-			// 
-			// dropMainY
-			// 
-			this.dropMainY.AutoSize = true;
-			this.dropMainY.BackColor = System.Drawing.Color.Black;
-			this.dropMainY.Image = global::PadDropLayout.Properties.Resources.Yellow;
-			this.dropMainY.Location = new System.Drawing.Point(268, 25);
-			this.dropMainY.Name = "dropMainY";
-			this.dropMainY.Size = new System.Drawing.Size(78, 64);
-			this.dropMainY.TabIndex = 0;
-			this.dropMainY.UseVisualStyleBackColor = false;
-			// 
 			// dropMainP
 			// 
 			this.dropMainP.AutoSize = true;
@@ -132,6 +89,50 @@
 			this.dropMainP.TabIndex = 0;
 			this.dropMainP.TabStop = true;
 			this.dropMainP.UseVisualStyleBackColor = false;
+			// 
+			// dropMainY
+			// 
+			this.dropMainY.AutoSize = true;
+			this.dropMainY.BackColor = System.Drawing.Color.Black;
+			this.dropMainY.Image = global::PadDropLayout.Properties.Resources.Yellow;
+			this.dropMainY.Location = new System.Drawing.Point(268, 25);
+			this.dropMainY.Name = "dropMainY";
+			this.dropMainY.Size = new System.Drawing.Size(78, 64);
+			this.dropMainY.TabIndex = 0;
+			this.dropMainY.UseVisualStyleBackColor = false;
+			// 
+			// dropMainG
+			// 
+			this.dropMainG.AutoSize = true;
+			this.dropMainG.BackColor = System.Drawing.Color.Black;
+			this.dropMainG.Image = global::PadDropLayout.Properties.Resources.Green;
+			this.dropMainG.Location = new System.Drawing.Point(184, 25);
+			this.dropMainG.Name = "dropMainG";
+			this.dropMainG.Size = new System.Drawing.Size(78, 64);
+			this.dropMainG.TabIndex = 0;
+			this.dropMainG.UseVisualStyleBackColor = false;
+			// 
+			// dropMainB
+			// 
+			this.dropMainB.AutoSize = true;
+			this.dropMainB.BackColor = System.Drawing.Color.Black;
+			this.dropMainB.Image = global::PadDropLayout.Properties.Resources.Blue;
+			this.dropMainB.Location = new System.Drawing.Point(100, 25);
+			this.dropMainB.Name = "dropMainB";
+			this.dropMainB.Size = new System.Drawing.Size(78, 64);
+			this.dropMainB.TabIndex = 0;
+			this.dropMainB.UseVisualStyleBackColor = false;
+			// 
+			// dropMainR
+			// 
+			this.dropMainR.AutoSize = true;
+			this.dropMainR.BackColor = System.Drawing.Color.Black;
+			this.dropMainR.Image = global::PadDropLayout.Properties.Resources.Red;
+			this.dropMainR.Location = new System.Drawing.Point(16, 25);
+			this.dropMainR.Name = "dropMainR";
+			this.dropMainR.Size = new System.Drawing.Size(78, 64);
+			this.dropMainR.TabIndex = 0;
+			this.dropMainR.UseVisualStyleBackColor = false;
 			// 
 			// groupDropSub
 			// 
@@ -218,14 +219,27 @@
 			this.comboLayoutList.FormattingEnabled = true;
 			this.comboLayoutList.Location = new System.Drawing.Point(12, 237);
 			this.comboLayoutList.Name = "comboLayoutList";
-			this.comboLayoutList.Size = new System.Drawing.Size(450, 29);
+			this.comboLayoutList.Size = new System.Drawing.Size(351, 29);
 			this.comboLayoutList.TabIndex = 2;
+			// 
+			// checkReverseLR
+			// 
+			this.checkReverseLR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.checkReverseLR.AutoSize = true;
+			this.checkReverseLR.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.checkReverseLR.Location = new System.Drawing.Point(369, 239);
+			this.checkReverseLR.Name = "checkReverseLR";
+			this.checkReverseLR.Size = new System.Drawing.Size(93, 25);
+			this.checkReverseLR.TabIndex = 3;
+			this.checkReverseLR.Text = "左右反転";
+			this.checkReverseLR.UseVisualStyleBackColor = true;
 			// 
 			// ToolForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(474, 641);
+			this.Controls.Add(this.checkReverseLR);
 			this.Controls.Add(this.comboLayoutList);
 			this.Controls.Add(this.groupDropSub);
 			this.Controls.Add(this.groupDropMain);
@@ -242,6 +256,7 @@
 			this.groupDropSub.ResumeLayout(false);
 			this.groupDropSub.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -261,6 +276,7 @@
 		private System.Windows.Forms.RadioButton dropSubB;
 		private System.Windows.Forms.RadioButton dropSubR;
 		private System.Windows.Forms.ComboBox comboLayoutList;
+		private System.Windows.Forms.CheckBox checkReverseLR;
 	}
 }
 

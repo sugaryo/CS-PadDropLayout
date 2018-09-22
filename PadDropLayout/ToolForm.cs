@@ -86,6 +86,7 @@ namespace PadDropLayout
 				s.CheckedChanged += draw;
 			}
 			this.comboLayoutList.SelectedIndexChanged += draw; 
+			this.checkReverseLR.CheckedChanged += draw;
 			this.Shown += draw;
 		}
 		
@@ -98,9 +99,9 @@ namespace PadDropLayout
 
 			Data data = this.comboLayoutList.SelectedItem as Data;
 
-			DrawDrop( color1, color2, data );
+			DrawDrop( color1, color2, data, this.checkReverseLR.Checked );
 		}
-		private void DrawDrop( Image color1, Image color2, Data data )
+		private void DrawDrop( Image color1, Image color2, Data data, bool reverse )
 		{
 			this.pictureDropLayout.Image = null;
 
@@ -111,11 +112,13 @@ namespace PadDropLayout
 				string[] lines = data.Layout;
 				for ( int y = 0; y < lines.Length; y++ )
 				{
-					string line = lines[y];
+					char[] chars = reverse
+						? lines[y].Reverse().ToArray()
+						: lines[y].ToCharArray();
 
-					for ( int x = 0; x < line.Length; x++ )
+					for ( int x = 0; x < chars.Length; x++ )
 					{
-						char c = line[x];
+						char c = chars[x];
 
 						Image drop = c == '1'
 							? color1
