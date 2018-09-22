@@ -73,6 +73,7 @@ namespace PadDropLayout
 		{
 			this.pictureDropLayout.Width = LAYOUT_W;
 			this.pictureDropLayout.Height = LAYOUT_H;
+			this.Icon = PadDropLayout.Properties.Resources.drop;
 
 
 			EventHandler draw = ( s, a ) => { this.DrawDrop(); };
