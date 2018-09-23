@@ -102,13 +102,14 @@ namespace PadDropLayout
 
 			Data data = this.comboLayoutList.SelectedItem as Data;
 
-			DrawDrop( color1, color2, data, this.checkReverseLR.Checked );
-		}
-		private void DrawDrop( Image color1, Image color2, Data data, bool reverse )
-		{
-			this.pictureDropLayout.Image = null;
 
-			using ( var g = Graphics.FromImage( this.bmp ) )
+			this.pictureDropLayout.Image = null;
+			this.DrawDrop( this.bmp, color1, color2, data, this.checkReverseLR.Checked );
+			this.pictureDropLayout.Image = this.bmp;
+		}
+		private void DrawDrop( Bitmap bmp, Image color1, Image color2, Data data, bool reverse )
+		{
+			using ( var g = Graphics.FromImage( bmp ) )
 			{
 				g.Clear( Color.Black );
 
@@ -131,22 +132,72 @@ namespace PadDropLayout
 					}
 				}
 			}
-			
-			this.pictureDropLayout.Image = this.bmp;
 		}
 		#endregion
 
 		#region SaveImage
 		private void SaveImage()
 		{
+			Data data = this.comboLayoutList.SelectedItem as Data;
+			bool reverse = this.checkReverseLR.Checked;
+
 			using ( var dialog = new SaveFileDialog() )
 			{
-				dialog.FileName = ( this.comboLayoutList.SelectedItem as Data ).Name + ".png";
+				dialog.FileName = data.Name
+						+ ( reverse ? "_左右反転" : "_正順" )
+						+ ".png";
 				if ( dialog.ShowDialog() == DialogResult.OK )
 				{
 					string filename = dialog.FileName;
 
 					this.bmp.Save( filename );
+				}
+			}
+		}
+		#endregion
+
+		#region Export
+		private void btnExport_Click( object sender, EventArgs e )
+		{
+			using ( var dialog = new FolderBrowserDialog() )
+			{
+				dialog.Description = "エクスポート先のフォルダを選択して下さい。";
+				if ( dialog.ShowDialog() == DialogResult.OK )
+				{
+					try
+					{
+						this.Export( dialog.SelectedPath );
+						MessageBox.Show( "success." );
+					}
+					catch ( Exception ex )
+					{
+						MessageBox.Show( ex.Message );
+					}
+				}
+			}
+		}
+		private void Export( string folder )
+		{
+			Image color1 = this.MainDrop;
+			Image color2 = this.SubDrop;
+
+			bool[] reverseLR = { false, true };
+
+			using ( Bitmap bmp = new Bitmap( LAYOUT_W, LAYOUT_H ) )
+			{
+				foreach ( Data data in this.dat )
+				{
+					foreach ( bool reverse in reverseLR )
+					{
+						this.DrawDrop( bmp, color1, color2, data, reverse );
+
+						string filename = data.Name
+							+ ( reverse ? "_左右反転" : "_正順" )
+							+ ".png";
+
+						string filepath = Path.Combine(folder, filename);
+						bmp.Save( filepath );
+					}
 				}
 			}
 		}

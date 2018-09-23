@@ -43,6 +43,7 @@
 			this.dropSubR = new System.Windows.Forms.RadioButton();
 			this.comboLayoutList = new System.Windows.Forms.ComboBox();
 			this.checkReverseLR = new System.Windows.Forms.CheckBox();
+			this.btnExport = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureDropLayout)).BeginInit();
 			this.groupDropMain.SuspendLayout();
 			this.groupDropSub.SuspendLayout();
@@ -73,7 +74,7 @@
 			this.groupDropMain.Name = "groupDropMain";
 			this.groupDropMain.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.groupDropMain.Size = new System.Drawing.Size(448, 103);
-			this.groupDropMain.TabIndex = 1;
+			this.groupDropMain.TabIndex = 0;
 			this.groupDropMain.TabStop = false;
 			this.groupDropMain.Text = "攻撃：主属性";
 			// 
@@ -219,7 +220,7 @@
 			this.comboLayoutList.FormattingEnabled = true;
 			this.comboLayoutList.Location = new System.Drawing.Point(12, 237);
 			this.comboLayoutList.Name = "comboLayoutList";
-			this.comboLayoutList.Size = new System.Drawing.Size(351, 29);
+			this.comboLayoutList.Size = new System.Drawing.Size(311, 29);
 			this.comboLayoutList.TabIndex = 2;
 			// 
 			// checkReverseLR
@@ -230,15 +231,28 @@
 			this.checkReverseLR.Location = new System.Drawing.Point(369, 239);
 			this.checkReverseLR.Name = "checkReverseLR";
 			this.checkReverseLR.Size = new System.Drawing.Size(93, 25);
-			this.checkReverseLR.TabIndex = 3;
+			this.checkReverseLR.TabIndex = 4;
 			this.checkReverseLR.Text = "左右反転";
 			this.checkReverseLR.UseVisualStyleBackColor = true;
+			// 
+			// btnExport
+			// 
+			this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnExport.Image = global::PadDropLayout.Properties.Resources.save;
+			this.btnExport.Location = new System.Drawing.Point(327, 237);
+			this.btnExport.Name = "btnExport";
+			this.btnExport.Size = new System.Drawing.Size(34, 29);
+			this.btnExport.TabIndex = 3;
+			this.btnExport.UseVisualStyleBackColor = true;
+			this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
 			// 
 			// ToolForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(474, 641);
+			this.Controls.Add(this.btnExport);
 			this.Controls.Add(this.checkReverseLR);
 			this.Controls.Add(this.comboLayoutList);
 			this.Controls.Add(this.groupDropSub);
@@ -277,6 +291,7 @@
 		private System.Windows.Forms.RadioButton dropSubR;
 		private System.Windows.Forms.ComboBox comboLayoutList;
 		private System.Windows.Forms.CheckBox checkReverseLR;
+		private System.Windows.Forms.Button btnExport;
 	}
 }
 
