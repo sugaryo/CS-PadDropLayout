@@ -60,6 +60,7 @@ namespace PadDropLayout
 				this.dropMainG,
 				this.dropMainY,
 				this.dropMainP,
+                this.dropMainH,
 			};
 			this.sub = new[] {
 				this.dropSubR,
@@ -67,6 +68,7 @@ namespace PadDropLayout
 				this.dropSubG,
 				this.dropSubY,
 				this.dropSubP,
+                this.dropSubH,
 			};
 		}
 		private void ToolForm_Load( object sender, EventArgs e )
